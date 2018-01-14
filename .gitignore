@@ -1,0 +1,5 @@
+ansible.cfg
+example.yml
+yum-check-update.retry
+yum-check-update.log
+hosts

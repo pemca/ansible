@@ -1,0 +1,27 @@
+---
+#
+# YUM Update Check RedHat and CentOS  pemca@tdc.dk 2018 
+#
+# 
+#
+# Version 1.00 - initial version
+#
+# ansible-playbook yum-check-update.yml --ask-become-pass -i serverlist
+#
+
+
+- hosts: all   
+
+  sudo: true 
+  #become_user: root
+  #become_method: sudo  
+
+  tasks:
+
+
+    - name: Check if updates available    
+      shell: 'yum check-update;echo $?'
+      register: exit_code
+    - debug: msg="Result = {{exit_code.rc}}"
+
+
